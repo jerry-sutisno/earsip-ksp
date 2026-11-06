@@ -23,11 +23,14 @@ class MasterSeeder extends Seeder
             ['kode_klasifikasi' => 'KE.01', 'nama_klasifikasi' => 'Akta Pendirian, AD/ART & Notulen RAT', 'retensi_aktif' => 0, 'retensi_inaktif' => 0, 'keterangan_akhir' => 'permanen'],
         ]);
 
+        DB::table('klasifikasi_arsip')->where('kode_klasifikasi', 'KP.03')->update(['jenis_berkas' => 'vital']);
+        DB::table('klasifikasi_arsip')->whereIn('kode_klasifikasi', ['KP.02', 'KP.03'])->update(['retensi_dihitung_dari' => 'tanggal_lunas']);
+
         DB::table('lokasi_arsip')->insert([
-            ['kode_lokasi' => 'BK-01.RF-A.OD-01', 'gedung' => 'Brankas Khazanah', 'nomor_rak' => 'BK-01', 'nomor_boks' => 'OD-01'],
-            ['kode_lokasi' => 'BK-01.RF-A.OD-02', 'gedung' => 'Brankas Khazanah', 'nomor_rak' => 'BK-01', 'nomor_boks' => 'OD-02'],
-            ['kode_lokasi' => 'RK-02.RF-A.OD-04', 'gedung' => 'Gedung Depo Utama', 'nomor_rak' => 'RK-02', 'nomor_boks' => 'OD-04'],
-            ['kode_lokasi' => 'RK-02.RF-B.OD-01', 'gedung' => 'Gedung Depo Utama', 'nomor_rak' => 'RK-02', 'nomor_boks' => 'OD-01'],
+            ['kode_lokasi' => 'BK-01.RF-A.OD-01', 'gedung' => 'Brankas Khazanah', 'nomor_rak' => 'BK-01', 'ambalan' => 'RF-A', 'nomor_boks' => 'OD-01'],
+            ['kode_lokasi' => 'BK-01.RF-A.OD-02', 'gedung' => 'Brankas Khazanah', 'nomor_rak' => 'BK-01', 'ambalan' => 'RF-A', 'nomor_boks' => 'OD-02'],
+            ['kode_lokasi' => 'RK-02.RF-A.OD-04', 'gedung' => 'Gedung Depo Utama', 'nomor_rak' => 'RK-02', 'ambalan' => 'RF-A', 'nomor_boks' => 'OD-04'],
+            ['kode_lokasi' => 'RK-02.RF-B.OD-01', 'gedung' => 'Gedung Depo Utama', 'nomor_rak' => 'RK-02', 'ambalan' => 'RF-B', 'nomor_boks' => 'OD-01'],
         ]);
     }
 }
