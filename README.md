@@ -43,7 +43,9 @@ Jalankan migrasi tabel beserta data dummy (Master, Transaksi, dan User):
 php artisan migrate:fresh --seed
 ```
 
-> **Catatan:** Tersedia juga file backup dump database di [`database/earsip_ksp_sprint1.sql`](database/earsip_ksp_sprint1.sql) jika ingin di-import langsung.
+> **Catatan Sprint 2:** 
+> - Jalankan `php artisan migrate:fresh --seed`, lalu buka aplikasi dan telusuri menu **Klasifikasi**, **Lokasi**, dan **Arsip**.
+> - Tersedia file dump database terbaru di [`database/earsip_ksp_sprint2.sql`](database/earsip_ksp_sprint2.sql) (termasuk 2 lokasi baru dan 10 entri arsip jaminan tambahan).
 
 ### 5. Jalankan Server
 ```bash
@@ -59,8 +61,8 @@ Gunakan akun berikut untuk login dan menguji hak akses role:
 
 | Role | Email | Password | Hak Akses |
 | :--- | :--- | :--- | :--- |
-| **Petugas Arsip** | `petugas@earsip.test` | `password` | Dashboard (Statistik 8 anggota, 10 arsip, 2 kredit macet), Menu Arsip |
-| **Pimpinan** | `pimpinan@earsip.test` | `password` | Dashboard, Menu Arsip, Menu Approval (`/approval`) |
+| **Petugas Arsip** | `petugas@earsip.test` | `password` | Dashboard, Menu Klasifikasi (CRUD), Menu Lokasi (CRUD), Menu Arsip (Registrasi & Lihat) |
+| **Pimpinan** | `pimpinan@earsip.test` | `password` | Dashboard, Menu Klasifikasi (Read-only), Menu Lokasi (Read-only), Menu Arsip (Read-only), Menu Approval (`/approval`) |
 
 ---
 
